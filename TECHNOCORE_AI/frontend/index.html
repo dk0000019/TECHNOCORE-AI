@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TECHNOCORE AI</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="icon" href="assets/images/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <img src="assets/images/logo.png" alt="TECHNOCORE AI" class="logo">
+                    <h1 class="app-title">TECHNOCORE AI</h1>
+                </div>
+                <button class="new-chat-btn" id="newChatBtn">
+                    <i class="fas fa-plus"></i>
+                    <span>New Chat</span>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active" data-category="general">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-comments"></i>
+                            <span>General</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-category="academic">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Academic</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-category="finance">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Finance</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-category="travel">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-plane"></i>
+                            <span>Travel</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-category="sports">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-running"></i>
+                            <span>Sports</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="nav-link library-btn" id="libraryBtn">
+                    <i class="fas fa-book"></i>
+                    <span>Library</span>
+                </button>
+                <button class="nav-link notification-btn" id="notificationBtn">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span>
+                    <span class="notification-badge">3</span>
+                </button>
+                <button class="nav-link settings-btn" id="settingsBtn">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Chat Header -->
+            <header class="chat-header">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="chat-title">
+                    <h2 id="currentCategory">General Knowledge</h2>
+                    <span class="status-indicator online"></span>
+                </div>
+                <div class="header-actions">
+                    <button class="header-btn" id="deepThinkBtn" title="Deep Think Mode">
+                        <i class="fas fa-brain"></i>
+                    </button>
+                    <button class="header-btn" id="voiceModeBtn" title="Voice Mode">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <!-- Chat Messages Container -->
+            <div class="chat-container" id="chatContainer">
+                <div class="welcome-message">
+                    <img src="assets/images/logo.png" alt="TECHNOCORE AI" class="welcome-logo">
+                    <h3>Welcome to TECHNOCORE AI</h3>
+                    <p>How can I help you today? You can ask me questions, upload files, or use voice input.</p>
+                </div>
+            </div>
+            
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <button class="input-btn" id="dictationBtn" title="Dictation">
+                        <i class="fas fa-microphone-alt"></i>
+                    </button>
+                    <button class="input-btn" id="attachmentBtn" title="Attach File">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <input type="text" class="chat-input" id="chatInput" placeholder="Ask me anything...">
+                    <button class="send-btn" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="input-options">
+                    <button class="option-btn" id="deepThinkToggle" title="Deep Think">
+                        <i class="fas fa-brain"></i>
+                        <span>Deep Think</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Library Modal -->
+        <div class="modal" id="libraryModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Conversation Library</h3>
+                    <button class="close-btn" id="closeLibraryBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="library-search">
+                        <input type="text" placeholder="Search conversations..." id="librarySearch">
+                    </div>
+                    <div class="conversation-list" id="conversationList">
+                        <!-- Conversations will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Notifications Modal -->
+        <div class="modal" id="notificationsModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Notifications</h3>
+                    <button class="close-btn" id="closeNotificationsBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="notifications-list" id="notificationsList">
+                        <!-- Notifications will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- File Input (Hidden) -->
+    <input type="file" id="fileInput" style="display: none;" multiple>
+    
+    <script src="js/utils.js"></script>
+    <script src="js/voice.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
